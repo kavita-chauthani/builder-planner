@@ -37,15 +37,6 @@ function App() {
     }
   }, [selectedId, shapes]);
 
-  // useEffect(() => {
-  //   const fetchDrawing = async () => {
-  //     const res = await fetch("http://localhost:8080/api/drawings");
-  //     const data = await res.json();
-  //     setSavedDrawing(data);
-  //   };
-  //   fetchDrawing();
-  // }, []);
-
   //handle mouse up
   const handleMouseUp = () => {
     if (newShape) {
@@ -236,7 +227,7 @@ function App() {
     const drawingId = prompt("Enter drawing by id to load");
     if (!drawingId) return
       const res = await fetch(
-        `https://builder-planner.onrender.com/api/drawings/${drawingId}`
+        `https://https://builder-planner-2.onrender.com/api/drawings/${drawingId}`
       );
       if (!res.ok) {
         alert("Drawing not found");
@@ -248,13 +239,7 @@ function App() {
     
   };
 
-  // const handleLoadDrawing = async (drawingId) => {
-  //   if (!drawingId) return;
-  //   const res = await fetch(`http://localhost:8080/api/drawings/${drawingId}`);
-  //   const data = await res.json();
-  //   setShapes(data.shapes);
-  //   alert("drawing loaded");
-  // };
+
   return (
     <>
       <div style={{ padding: "4px" }}>
@@ -267,19 +252,6 @@ function App() {
             {showAnnotations ? "hide" : "show"}
             Annotations
           </button>
-
-          {/* <div style={{ marginBottom: "4px" }}>
-            <label>Select drawing to load:</label>
-            <select onChange={(e) => handleLoadDrawing(e.target.value)}>
-              <option value="">Choose</option>
-              {savedDrawings.map((drawing) => (
-                <option key={drawing._id} value={drawing._id}>
-                  {drawing.name} ({new Date(drawing.createdAt).toLocaleString()}
-                  )
-                </option>
-              ))}
-            </select>
-          </div> */}
         </div>
 
         <div style={{ display: "flex", gap: "2px", marginBottom: "4" }}>
