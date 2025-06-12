@@ -215,7 +215,7 @@ function App() {
         body: JSON.stringify({ name, shapes }),
       });
       const data = await res.json();
-      alert("Drawing saved" + data._id);
+      alert("Drawing saved");
     } catch (error) {
       console.log(error);
     }
