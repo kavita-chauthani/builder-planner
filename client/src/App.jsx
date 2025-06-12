@@ -221,24 +221,6 @@ function App() {
     }
   };
 
-  //load drawing from db
-
-  const loadDrawing = async (drawingId) => {
-    const drawingId = prompt("Enter drawing by id to load");
-    if (!drawingId) return
-      const res = await fetch(
-        `https://https://builder-planner-2.onrender.com/api/drawings/${drawingId}`
-      );
-      if (!res.ok) {
-        alert("Drawing not found");
-        return;
-      }
-      const data = await res.json();
-      setShapes(data.shapes);
-      alert("Drawing loaded", +data.name);
-    
-  };
-
 
   return (
     <>
