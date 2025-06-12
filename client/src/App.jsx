@@ -218,7 +218,7 @@ function App() {
     const name = prompt("Enter drawing name:");
     if (!name) return;
     try {
-      const res = await fetch("http://localhost:8080/api/drawings", {
+      const res = await fetch("https://builder-planner.onrender.com/api/drawings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, shapes }),
@@ -232,11 +232,11 @@ function App() {
 
   //load drawing from db
 
-  const loadDrawing = async () => {
+  const loadDrawing = async (drawingId) => {
     const drawingId = prompt("Enter drawing by id to load");
-    if (!drawingId) {
+    if (!drawingId) return
       const res = await fetch(
-        `http://localhost:8080/api/drawings/${drawingId}`
+        `https://builder-planner.onrender.com/api/drawings/${drawingId}`
       );
       if (!res.ok) {
         alert("Drawing not found");
@@ -245,7 +245,7 @@ function App() {
       const data = await res.json();
       setShapes(data.shapes);
       alert("Drawing loaded", +data.name);
-    }
+    
   };
 
   // const handleLoadDrawing = async (drawingId) => {
