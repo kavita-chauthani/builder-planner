@@ -238,7 +238,7 @@ function App() {
 
         <div style={{ display: "flex", gap: "2px", marginBottom: "4" }}>
           <button onClick={saveDrawing}>Save Drawing</button>
-          <button onClick={loadDrawing}>Load Drawing</button>
+         
         </div>
         <Stage
           width={window.innerWidth * 0.9}
